@@ -1,0 +1,37 @@
+.indicator {
+	text-align: center;
+	&__finish {
+		font-size: 8vh;
+		position: absolute;
+		top: calc(50% - 9vh);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		word-spacing: -1vh;
+		color: transparent;
+		transition: color 1s ease;
+	}
+	&__serve {
+		font-size: 2.5vh;
+		position: absolute;
+		top: calc(50% + 7vh);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: var(--light-color);
+		transition: color 1s ease;
+	}
+}
+
+body {
+	&.--finished .indicator__finish {
+		transition: none;
+	}
+	&.--win .indicator__finish.--win {
+		color: var(--light-color);
+	}
+	&.--lose .indicator__finish.--lose {
+		color: var(--light-color);
+	}
+	&.--moving .indicator__serve {
+		color: transparent;
+	}
+}

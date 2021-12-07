@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	user-select: none;
+	// cursor: none;
+}
+
+:root {
+	--white-color: hsl(0, 0%, 100%);
+	--lighter-color: hsl(0, 0%, 90%);
+	--light-color: hsl(0, 0%, 70%);
+	--dark-color: hsl(0, 0%, 20%);
+	--darker-color: hsl(0, 0%, 10%);
+	--black-color: hsl(0, 0%, 0%);
+
+	--win-color: hsl(155, 100%, 30%);
+	--lose-color: hsl(345, 100%, 40%);
+
+	--hue: 34;
+	// --test-color: hsl(34, 100%, 50%);
+	--main-color: hsl(var(--hue), 100%, 50%);
+}
+
+body {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+
+	text-transform: uppercase;
+	font-family: 'Share Tech Mono', monospace;
+	color: var(--white-color);
+	background-color: var(--black-color);
+	transition: background-color 1s ease;
+	&.--finished {
+		transition: none;
+	}
+	&.--win {
+		background-color: var(--win-color);
+	}
+	&.--lose {
+		background-color: var(--lose-color);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -10vh;
+		bottom: -10vh;
+		left: -10vh;
+		right: -10vh;
+		box-shadow: inset 0 0 5vh transparent;
+		transition: box-shadow 2s ease;
+	}
+	&.--flash.--player::after {
+		box-shadow: inset -10vh 0 5vh var(--win-color);
+		transition: none;
+	}
+	&.--flash.--computer:after {
+		box-shadow: inset 10vh 0 5vh var(--lose-color);
+		transition: none;
+	}
+}
+
+.startButton {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent;
+	display: block;
+	appearance: none;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAACBJREFUKFNj/P///39GRkZGBgKAoAKY/lGFeEOS6OABAGizBAuCOsP3AAAAAElFTkSuQmCC)
+		repeat;
+	background-size: 15px;
+	opacity: 0.1;
+}
+body.--moving .startButton {
+	pointer-events: none;
+}
+
+@import 'score';
+@import 'indicator';
+@import 'ball';
+@import 'paddle';

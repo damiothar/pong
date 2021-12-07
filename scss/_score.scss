@@ -1,0 +1,33 @@
+.score {
+	position: absolute;
+	top: 50%;
+	left: 20vh;
+	width: 80vw;
+	transform: translateY(-50%);
+
+	display: flex;
+	justify-content: center;
+	font-weight: 400;
+	font-size: 90vh;
+	line-height: 1;
+
+	&__number {
+		padding-top: 4vh;
+		flex: 1;
+		text-align: center;
+
+		color: var(--darker-color);
+		transition: color 1s ease;
+		&.--flash {
+			color: var(--lighter-color);
+			transition: none;
+		}
+	}
+}
+
+body.--finished {
+	.score__number {
+		color: var(--light-color);
+		transition: none;
+	}
+}

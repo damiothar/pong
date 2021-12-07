@@ -1,0 +1,27 @@
+.paddle {
+	--position: 50;
+	--size: 16;
+
+	position: absolute;
+	z-index: 1;
+	top: calc(var(--position) * 1vh);
+	transform: translateY(-50%);
+
+	&.--player {
+		left: 6vh;
+	}
+	&.--computer {
+		right: 6vh;
+	}
+
+	&__inner {
+		width: 3vh;
+		height: calc(var(--size) * 1vh);
+		background-color: var(--light-color);
+		transition: background-color 1s ease;
+	}
+	&.--flash .paddle__inner {
+		background-color: var(--main-color);
+		transition: none;
+	}
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pong</title>
+		<link rel="stylesheet" href="./css/styles.css" />
+
+		<script src="./js/game.js" type="module"></script>
+	</head>
+	<body>
+		<button class="startButton"></button>
+
+		<!-- # SCORE -->
+		<div class="score">
+			<div class="score__number --player">0</div>
+			<div class="score__number --computer">0</div>
+		</div>
+
+		<!-- # INDICATOR -->
+		<div class="indicator">
+			<div class="indicator__finish --win">Winner</div>
+			<div class="indicator__finish --lose">Loser</div>
+			<div class="indicator__serve">(Click to Serve)</div>
+		</div>
+
+		<!-- # BALL -->
+		<div class="ball">
+			<div class="ball__inner"></div>
+		</div>
+
+		<!-- # PADDLE -->
+		<div class="paddle --player">
+			<div class="paddle__inner"></div>
+		</div>
+		<div class="paddle --computer">
+			<div class="paddle__inner"></div>
+		</div>
+	</body>
+</html>

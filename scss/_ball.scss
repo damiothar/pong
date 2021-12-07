@@ -1,0 +1,24 @@
+.ball {
+	--x: 50;
+	--y: 50;
+	position: absolute;
+	z-index: 1;
+	left: calc(var(--x) * 1vw);
+	top: calc(var(--y) * 1vh);
+	z-index: 10;
+	transform: translate(-50%, -50%);
+	padding: 2vh;
+	pointer-events: none;
+
+	&__inner {
+		width: 4vh;
+		height: 4vh;
+		border-radius: 50%;
+		background-color: var(--light-color);
+		transition: background-color 1s ease;
+	}
+	&.--flash .ball__inner {
+		background-color: var(--main-color);
+		transition: none;
+	}
+}
